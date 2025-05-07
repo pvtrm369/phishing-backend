@@ -1,0 +1,12 @@
+
+fastapi
+uvicorn
+joblib
+numpy
+pydantic
+pandas
+beautifulsoup4
+python-whois
+dnspython
+requests
+tldextract
