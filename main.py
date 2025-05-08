@@ -6,6 +6,18 @@ from pydantic import BaseModel
 import extractorFunction 
 import uvicorn
 import pandas as pd
+import os 
+from fastapi.middleware.cors import CORSMiddleware
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+
+
+
 
 # Define the input data model using Pydantic
 class URLRequest(BaseModel):
@@ -16,6 +28,16 @@ model = joblib.load('DecisionTreeClassifier.joblib')
 
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 def predict_phishing(url):
   features=extractorFunction.extract_features(url)
