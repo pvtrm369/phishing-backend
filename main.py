@@ -25,7 +25,7 @@ class URLRequest(BaseModel):
     url: str
 
 
-model = joblib.load('DecisionTreeClassifier.joblib')
+model = joblib.load('XGBoost (1).joblib')
 
 
 app = FastAPI()
